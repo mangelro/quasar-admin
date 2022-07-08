@@ -20,6 +20,7 @@
     "vuex": "^4.0.1"
   },
   "devDependencies": {
+    "@intlify/vue-i18n-loader": "^4.2.0",
     "@quasar/app-webpack": "^3.5.3",
     "@quasar/quasar-app-extension-qcalendar": "^4.0.0-beta.15",
     "quasar-app-extension-qhierarchy": "^1.0.0-alpha.1"
