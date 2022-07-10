@@ -1,7 +1,6 @@
 <template>
 	<q-page class="q-pa-sm">
 		<div class="text-h2">{{ $t('saludo') }}</div>
-		<div class="text-h3">{{ $q.lang.getLocale() }}</div>
 		<card-social icon_position="left" />
 
 		<card-charts />
@@ -23,10 +22,11 @@
 
 <script>
 	import { defineComponent, defineAsyncComponent } from 'vue'
-	import { useI18n } from 'vue-i18n'
+
 
 	export default defineComponent({
 		name: 'PageIndex',
+		
 		components: {
 			CardSocial: defineAsyncComponent(() => import('components/cards/CardSocial')),
 			CardCharts: defineAsyncComponent(() => import('components/cards/CardCharts')),
@@ -39,9 +39,6 @@
 		},
 
 		setup() {
-			const { locale, t } = useI18n()
-			console.log(t('saludo'))
-
 			return {
 				mode: 'list',
 				messages: [

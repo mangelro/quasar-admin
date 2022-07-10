@@ -60,6 +60,14 @@
 							<img src="https://cdn.quasar.dev/img/boy-avatar.png" />
 						</q-avatar>
 					</q-btn>
+					<!---->
+					<q-btn
+						class="q-mr-xs"
+						flat
+						round
+						@click="$q.dark.toggle()"
+						:icon="$q.dark.isActive ? 'nights_stay' : 'wb_sunny'"
+					/>
 				</div>
 			</q-toolbar>
 		</q-header>
@@ -83,6 +91,7 @@
 							<q-item-label>CRM Dashboard</q-item-label>
 						</q-item-section>
 					</q-item>
+					<q-separator class="bg-grey-7" size="2px" inset></q-separator>
 					<q-expansion-item icon="pages" label="Pages">
 						<q-list class="q-pl-lg">
 							<q-item to="/Login-1" active-class="q-item-no-link-highlighting">

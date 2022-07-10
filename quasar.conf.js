@@ -7,7 +7,7 @@
 // https://quasar.dev/quasar-cli/quasar-conf-js
 
 const { configure } = require('quasar/wrappers')
-//const path = require('path')
+const path = require('path')
 
 module.exports = configure(function (/* ctx */) {
 	return {
@@ -61,23 +61,25 @@ module.exports = configure(function (/* ctx */) {
 
 			// https://quasar.dev/quasar-cli/handling-webpack
 			// "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
-			build: {
-				chainWebpack: chain => {
-					chain.module
-						.rule('i18n-resource')
-						.test(/\.(json5?|ya?ml)$/)
-						.include.add(path.resolve(__dirname, './src/i18n'))
-						.end()
-						.type('javascript/auto')
-						.use('i18n-resource')
-						.loader('@intlify/vue-i18n-loader')
-					chain.module
-						.rule('i18n')
-						.resourceQuery(/blockType=i18n/)
-						.type('javascript/auto')
-						.use('i18n')
-						.loader('@intlify/vue-i18n-loader')
-				},
+
+			//publicPath: process.env.NODE_ENV === 'production' ? '/quasar-admin/' : '/',
+			publicPath: '/quasar-admin/',
+
+			chainWebpack: chain => {
+				chain.module
+					.rule('i18n-resource')
+					.test(/\.(json5?|ya?ml)$/)
+					.include.add(path.resolve(__dirname, './src/i18n'))
+					.end()
+					.type('javascript/auto')
+					.use('i18n-resource')
+					.loader('@intlify/vue-i18n-loader')
+				chain.module
+					.rule('i18n')
+					.resourceQuery(/blockType=i18n/)
+					.type('javascript/auto')
+					.use('i18n')
+					.loader('@intlify/vue-i18n-loader')
 			},
 		},
 
@@ -102,9 +104,9 @@ module.exports = configure(function (/* ctx */) {
 			// components: [],
 			// directives: [],
 
-      lang:'es',
+			lang: 'es',
 			// Quasar plugins
-			plugins: ['AppFullscreen'],
+			plugins: ['AppFullscreen','Notify'],
 		},
 
 		// animations: 'all', // --- includes all animations
