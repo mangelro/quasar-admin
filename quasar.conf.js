@@ -63,7 +63,7 @@ module.exports = configure(function (/* ctx */) {
 			// "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
 
 			//publicPath: process.env.NODE_ENV === 'production' ? '/quasar-admin/' : '/',
-			publicPath: '/quasar-admin/',
+			//publicPath: '/quasar-admin/',
 
 			chainWebpack: chain => {
 				chain.module
